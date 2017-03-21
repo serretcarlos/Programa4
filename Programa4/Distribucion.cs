@@ -6,7 +6,61 @@ using System.Threading.Tasks;
 
 namespace Programa4
 {
+    //&p-Distribucion
     class Distribucion
     {
+        private double dX;
+        private double dof;
+        //&i
+        public Distribucion()
+        {
+            dX = 0;
+            dof = 0;
+        }
+        //&i
+        public Distribucion(double dX, double dof)
+        {
+            this.dX = dX;
+            this.dof = dof;
+        }
+        //&i
+        public double FuncionF()
+        {
+            double dResultado, dXi, dY, dZ, dA;
+            dResultado = 0;
+
+            dXi = 1.0 * ((dof + 1) * 0.5);
+            dA = FuncionGamma(dXi);
+            dY = Math.Pow(dof * Math.PI, 0.5);
+            dXi = 1.0 * (dof * 0.5);
+            dZ = FuncionGamma(dXi);
+            dResultado = dA / (dY * dZ);
+            dXi = 1.0 + (Math.Pow(dX, 2) / dof);
+            dY = -1.0 * ((dof + 1) * 0.5);
+            dA = Math.Pow(dXi, dY);
+            dResultado = dResultado * dA;
+            return dResultado;
+        }
+
+        //&i
+        public double FuncionGamma(double dx)
+        {
+            if (dx == 0)
+            {
+                return -1;
+            }
+            if (dx == 1.0)
+            {
+                return 1;
+            }
+            if (dx == 0.5)
+            {
+                return Math.Sqrt(Math.PI);
+            }
+            else
+            {
+                return (dx - 1) * FuncionGamma(dx - 1);
+            }
+        }
     }
 }
