@@ -26,20 +26,20 @@ namespace Programa4
         //&i
         public double FuncionF()
         {
-            double dResultado, dXi, dY, dZ, dA;
-            dResultado = 0;
+            double resultado, dXi, dY, dZ, dA;
+            resultado = 0;
 
             dXi = 1.0 * ((dof + 1) * 0.5);
             dA = FuncionGamma(dXi);
             dY = Math.Pow(dof * Math.PI, 0.5);
             dXi = 1.0 * (dof * 0.5);
             dZ = FuncionGamma(dXi);
-            dResultado = dA / (dY * dZ);
+            resultado = dA / (dY * dZ);
             dXi = 1.0 + (Math.Pow(dX, 2) / dof);
             dY = -1.0 * ((dof + 1) * 0.5);
             dA = Math.Pow(dXi, dY);
-            dResultado = dResultado * dA;
-            return dResultado;
+            resultado = resultado * dA;
+            return resultado;
         }
 
         //&i

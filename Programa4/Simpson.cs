@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace Programa4
 {
+    /// <summary>
+    /// 
+    /// </summary>
     //&p-Simpson
     class Simpson
     {
@@ -33,10 +36,10 @@ namespace Programa4
         //&i
         public double FuncionP()
         {
-            double dXi, dResultado;
-            int iMultiplier;
+            double dXi, resultado;
+            int multiplier;
             dXi = 0;
-            dResultado = 0;
+            resultado = 0;
             Distribucion distribucion;
 
             for (int iA = 0; iA <= num_seg; iA++)
@@ -45,20 +48,20 @@ namespace Programa4
 
                 if (iA == 0 || iA == num_seg)
                 {
-                    iMultiplier = 1;
+                    multiplier = 1;
                 }
                 else if (iA % 2 == 0)
                 {
-                    iMultiplier = 2;
+                    multiplier = 2;
                 }
                 else
                 {
-                    iMultiplier = 4;
+                    multiplier = 4;
                 }
-                dResultado = dResultado + (((width / 3) * iMultiplier * distribucion.FuncionF()));
+                resultado = resultado + (((width / 3) * multiplier * distribucion.FuncionF()));
                 dXi = dXi + width;
             }
-            return dResultado;
+            return resultado;
         }
     }
 }
