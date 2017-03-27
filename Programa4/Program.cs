@@ -14,7 +14,6 @@ namespace Programa4
         {
             double dof;
             double x;
-            double E = 0.0000001;
             dof = 0;
             x = 0;
 
@@ -22,17 +21,6 @@ namespace Programa4
             {
                 x = double.Parse(Console.ReadLine());
                 dof = double.Parse(Console.ReadLine());
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine(e.Message);
-            }
-            if (dof <= 0 || x < 0)
-            {
-                Console.WriteLine("Alguno de los datos ingresados es incorrecto. Presione enter para salir e intente de nuevo.");
-            }
-            else
-            {
                 double num_seg;
                 double resta;
                 num_seg = 10;
@@ -47,11 +35,13 @@ namespace Programa4
                     simpsonB = new Simpson(x, dof, num_seg);
                     resta = simpsonA.FuncionP() - simpsonB.FuncionP();
                 }
-                while (Math.Abs(resta) >= E);
-
-                Console.WriteLine("x = " + x.ToString("N5") + "\ndof = " + dof + "\np = " + Math.Round(simpsonB.FuncionP(),5).ToString("N5"));
+                while (Math.Abs(resta) >= 0.0000001);
+                Console.WriteLine("x = " + x.ToString("N5") + "\ndof = " + dof + "\np = " + Math.Round(simpsonB.FuncionP(), 5).ToString("N5"));
             }
-
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
             Console.ReadLine();
         }
     }

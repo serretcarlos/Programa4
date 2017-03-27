@@ -42,15 +42,15 @@ namespace Programa4
             resultado = 0;
             Distribucion distribucion;
 
-            for (int iA = 0; iA <= num_seg; iA++)
+            for (int i = 0; i <= num_seg; i++)
             {
                 distribucion = new Distribucion(dXi, dof);
 
-                if (iA == 0 || iA == num_seg)
+                if (i == 0 || i == num_seg)
                 {
                     multiplier = 1;
                 }
-                else if (iA % 2 == 0)
+                else if (i % 2 == 0)
                 {
                     multiplier = 2;
                 }
